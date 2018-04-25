@@ -175,7 +175,7 @@
         var source = {};
         var extended = _.extend(destination, source);
 
-        expect(extended).to.equal(destination);
+        expect(extended).to.eql(destination);
       });
 
       it('should extend an object with the attributes of another', function() {
@@ -189,7 +189,12 @@
       it('should override properties found on the destination', function() {
         // Replace this line with an `expect` statement that tests
         // the behavior described by the `it` string
-        throw new Error('This test is missing.');
+        //throw new Error('This test is missing.');
+        var destination = { a: 'dude'}
+        var source = { a: 'bruh', b: 'hon'}
+        var extended = _.extend(destination, source);
+        
+        expect(extended).to.eql({a: 'bruh', b: 'hon'})
       });
 
       it('should not override properties not found in the source', function() {
